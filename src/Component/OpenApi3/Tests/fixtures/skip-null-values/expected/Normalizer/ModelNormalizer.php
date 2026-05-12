@@ -68,17 +68,11 @@ class ModelNormalizer implements DenormalizerInterface, NormalizerInterface, Den
         if ($data->isInitialized('foo')) {
             $dataArray['foo'] = $data->getFoo();
         }
-        else {
-            $dataArray['foo'] = null;
-        }
         if ($data->isInitialized('bar') && null !== $data->getBar()) {
             $dataArray['bar'] = $data->getBar();
         }
         if ($data->isInitialized('date')) {
             $dataArray['date'] = $data->getDate()?->format('Y-m-d\TH:i:sP');
-        }
-        else {
-            $dataArray['date'] = null;
         }
         foreach ($data as $key => $value) {
             if (preg_match('/.*/', (string) $key)) {
